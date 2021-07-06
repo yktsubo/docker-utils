@@ -20,4 +20,5 @@ RUN apt-get update && apt-get install -y \
 
 # Start init daemon
 WORKDIR /root
-ENTRYPOINT ["/bin/sh", "-c", "while true; do echo hello world; sleep 60; done"]
+COPY dns-request.sh /root/dns-request.sh 
+ENTRYPOINT ["/root/dns-request.sh"]
